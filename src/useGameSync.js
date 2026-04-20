@@ -24,3 +24,9 @@ export function useAllTeams(callback) {
     return () => unsubscribe();
   }, []);
 }
+
+// Reset the entire game (delete all team data)
+export function resetGame() {
+  const gameRef = ref(db, `games/${GAME_ID}`);
+  return set(gameRef, null);
+}

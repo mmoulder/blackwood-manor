@@ -807,6 +807,7 @@ export default function App() {
       {screen==="lobby"&&<Lobby onStart={p=>{setPlayer(p);setScreen("game");}}/>}
       {screen==="game"&&<GameScreen player={player} onAccuse={()=>setScreen("accuse")}/>}
       {screen==="accuse"&&<AccuseScreen player={player} onBack={()=>setScreen("game")}/>}
+      <a href="/admin" style={{position:"fixed",bottom:10,left:10,fontSize:9,color:"#3d3528",textDecoration:"none",letterSpacing:1,opacity:0.3,transition:"opacity 0.2s"}} onMouseEnter={e=>e.target.style.opacity=0.7} onMouseLeave={e=>e.target.style.opacity=0.3}>ADMIN</a>
     </>
   );
 }
