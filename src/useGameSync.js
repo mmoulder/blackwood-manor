@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { db, ref, set, onValue, update } from "./firebase";
 
-const GAME_ID = "blackwood-2024"; // change this to a unique ID per event
+const GAME_ID = "blackwood-04-20-2026"; // change this to a unique ID per event
 
 // Write this team's progress to Firebase
 export function syncTeamProgress(teamName, solvedCount, accusation = null) {
