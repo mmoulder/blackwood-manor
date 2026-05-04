@@ -68,12 +68,12 @@ const CLUE_CHAIN = [
   },
   {
     id: 2, icon: "📜", location: "The Fireplace — Partially Burned Documents",
-    evidence: "Three fragments of paper were retrieved from the fireplace grate before the fire was fully extinguished. Fragment A reads: '...the accounts will not bear scrutiny much longer...' Fragment B reads: '...I have engaged a solicitor of my own to examine the...' Fragment C reads: '...you have until the 14th to make restitution or I shall have no choice but to contact Scotland...' The 14th was two days after the murder.",
+    evidence: "Three fragments of paper were retrieved from the fireplace grate before the fire was fully extinguished. Fragment A reads: '...I have engaged a solicitor of my own to examine the...' Fragment B reads: '...you have until the 14th to make restitution or I shall have no choice but to contact Scotland...' Fragment C reads: '...the accounts will not bear scrutiny much longer...' The 14th was two days after the murder.",
     puzzle: {
       type: "sequence", title: "DOCUMENT RECONSTRUCTION",
-      question: "The three fragments must be assembled in correct chronological order to reveal the full threat. Each fragment was written at a different stage of the confrontation.\n\nFragment A: Lord Blackwood discovers the accounts are suspicious\nFragment B: Lord Blackwood engages independent legal scrutiny\nFragment C: Lord Blackwood issues a final ultimatum with a deadline\n\nArrange them in the correct logical sequence. Enter three letters, e.g. BAC",
+      question: "The three fragments must be assembled in correct chronological order to reveal the full threat. Each fragment was written at a different stage of the confrontation.\n\nFragment A: Lord Blackwood engages independent legal scrutiny\nFragment B: Lord Blackwood issues a final ultimatum with a deadline\nFragment C: Lord Blackwood discovers the accounts are suspicious\n\nArrange them in the correct logical sequence. Enter three letters, e.g. BAC",
       hint: "Think about what Blackwood would do first: discover the problem, then investigate, then warn.",
-      answer: "abc", acceptedAnswers: ["abc", "a b c", "a,b,c", "a-b-c"],
+      answer: "cab", acceptedAnswers: ["cab", "c a b", "c,a,b", "c-a-b"],
       redHerring: null,
     },
   },
@@ -84,7 +84,7 @@ const CLUE_CHAIN = [
       type: "math", title: "FORENSIC ACCOUNTING",
       question: "Scotland Yard's financial crimes unit needs three figures to file charges:\n\n1. What is the TOTAL amount embezzled across all 14 entries?\n2. What is the AVERAGE monthly withdrawal? (round to nearest whole pound)\n3. In which month did withdrawals FIRST exceed £5,000?\n\nEnter your answer as three values separated by commas:\ne.g. 50000, 3000, September",
       hint: "Add all 14 figures for the total. Divide by 14 for average. Scan month by month: first to exceed £5,000 is the answer to question 3.",
-      answer: "64000,4571,november", acceptedAnswers: ["64000,4571,november","64000, 4571, november","£64000,£4571,november","64,000,4,571,november"],
+      answer: "64000,4571,september", acceptedAnswers: ["64000,4571,september","64000, 4571, september","£64000,£4571,september","64,000,4,571,september","64000,4571,sep","64000 4571 september"],
       redHerring: null,
     },
   },
@@ -95,7 +95,13 @@ const CLUE_CHAIN = [
       type: "deduction", title: "THE DIARY PAGE",
       question: "The diary page contains three critical revelations. Identify all three:\n\n1. The initials 'S.F.' refer to which suspect? (Full name)\n2. 'The new document' almost certainly refers to what legal instrument?\n3. 'The other matter' is a euphemism for what action the writer is planning?\n\nEnter your three answers separated by commas:\ne.g. John Smith, lease agreement, robbery",
       hint: "S.F. = initials of the family solicitor. A new document in an estate legal context = a will. The other matter follows discussion of preventing exposure — what must be done to silence Blackwood permanently?",
-      answer: "silas fenwick,will,murder", acceptedAnswers: ["silas fenwick,will,murder","fenwick,will,murder","mr fenwick,will,murder","silas fenwick, will, murder","fenwick, will, murder","silas fenwick,new will,murder","fenwick,new will,murder"],
+      answer: "silas fenwick, will, murder",
+      acceptedAnswers: ["silas fenwick,will,murder","fenwick,will,murder","mr fenwick,will,murder","silas fenwick, will, murder","fenwick, will, murder","silas fenwick,new will,murder","fenwick,new will,murder"],
+      keywordGroups: [
+        ["fenwick"],
+        ["will","testament"],
+        ["murder","kill","poison","death","assassinat","slay","slaying","homicide"],
+      ],
       redHerring: null,
     },
   },
@@ -115,8 +121,8 @@ const CLUE_CHAIN = [
     evidence: "On the billiards table: a half-played hand of whist, a whisky tumbler, and Harwick's pocket watch (stopped at 11:47pm). Beneath the card table: a pawn ticket from Craddock's of Salisbury, dated the night of the murder, for 'three military decorations incl. Victoria Cross — value £85.' Lord Blackwood's medals cabinet in the study is empty. Harwick's alibi: played cards with Fenwick from 8pm to midnight. Fenwick denies this entirely.",
     puzzle: {
       type: "logic_grid", title: "THE ALIBI MATRIX",
-      question: "Four people make statements about their whereabouts between 9pm and 10:30pm — the window of the murder.\n\n• Harwick: 'I was in the billiards room with Fenwick the whole evening.'\n• Fenwick: 'I was alone in the library reviewing documents. Harwick is lying.'\n• Mrs. Doyle: 'I was in the kitchen until 10pm. I saw Fenwick in the library at 9:45pm.'\n• Victoria: 'I was in my room reading all evening. I saw no one.'\n\nMrs. Doyle's testimony is corroborated by the kitchen maid.\n\nAnswer three questions:\n① Who is PROVABLY lying?\n② Who has NO alibi at all?\n③ Whose alibi is CORROBORATED by another witness?\n\nEnter three surnames separated by commas.",
-      hint: "If Mrs. Doyle saw Fenwick in the library at 9:45pm, Harwick's claim of being with Fenwick is false. Victoria has no witness. Mrs. Doyle has the kitchen maid as corroboration.",
+      question: "Four people make statements about their whereabouts between 9pm and 10:30pm — the window of the murder.\n\n• Harwick: 'I was in the billiards room with Fenwick the whole evening.'\n• Fenwick: 'I was alone in the library reviewing documents. Harwick is lying.'\n• Mrs. Doyle: 'I was in the kitchen until 10pm. I saw Fenwick in the library at 9:45pm.'\n• Victoria: 'I was in my room reading all evening. I saw no one.'\n\nMrs. Doyle's testimony is corroborated by the kitchen maid, who was with her in the kitchen the entire evening.\n\nAnswer three questions:\n① Who is PROVABLY lying?\n② Who has NO alibi at all?\n③ Whose alibi is corroborated by an INDEPENDENT witness — that is, someone other than the four people listed above?\n\nEnter three surnames separated by commas.",
+      hint: "If Mrs. Doyle saw Fenwick in the library at 9:45pm, Harwick's claim of being with Fenwick is false. Victoria has no witness at all. Only Mrs. Doyle has corroboration from outside the four suspects (the kitchen maid).",
       answer: "harwick,victoria,doyle", acceptedAnswers: ["harwick,victoria,doyle","harwick, victoria, doyle","harwick victoria doyle","colonel harwick,victoria,mrs doyle"],
       redHerring: "Harwick's lie concerns the medal theft, not the murder. He is guilty of theft but innocent of killing.",
     },
@@ -126,8 +132,8 @@ const CLUE_CHAIN = [
     evidence: "Records from Whitmore & Sons Chemist confirm: on October 29th, four days before the murder, two separate purchases of arsenious oxide were made. Purchase 1: 2oz signed 'V. Ashworth.' Purchase 2: 1oz signed with an illegible initial. The chemist recalls the second buyer was a 'nervous, thin gentleman in a dark coat' who paid in cash and seemed agitated. A coded entry appears in Whitmore's private suspicion log next to the second purchase.",
     puzzle: {
       type: "cipher", title: "THE CODED PURCHASE LOG",
-      question: "Whitmore encoded the second buyer's surname using a simple letter-shift cipher. Each letter is shifted forward by 5 positions in the alphabet (A becomes F, B becomes G, etc.).\n\nEncoded surname: AJSBNHP\n\nDecode it. What is the surname of the second buyer?",
-      hint: "Shift each letter BACK by 5: A(1)-5=V(22)... wait, go back 5 from each letter. A→V, J→E, S→N, B→W, N→I, H→C, P→K. Does VENWICK look familiar? Try again carefully: A=1, shift back 5 means A(1)→W(23)... actually A-5 wraps: try F→A, so reverse: subtract 5. A(0)→V(21), J(9)→E(4), S(18)→N(13), B(1)→W(22), N(13)→I(8), H(7)→C(2), P(15)→K(10). The answer is the nervous solicitor's surname.",
+      question: "Whitmore encoded the second buyer's surname using a simple letter-shift cipher. Each letter is shifted forward by 5 positions in the alphabet (A becomes F, B becomes G, etc.).\n\nEncoded surname: KJSBNHP\n\nDecode it. What is the surname of the second buyer?",
+      hint: "Shift each letter BACK by 5 positions: K→F, J→E, S→N, B→W (wraps), N→I, H→C, P→K. The answer is the nervous solicitor's surname.",
       answer: "fenwick", acceptedAnswers: ["fenwick","mr fenwick","silas fenwick"],
       redHerring: null,
     },
@@ -208,9 +214,18 @@ function Puzzle({ clue, onSolve, index, total }) {
   useEffect(() => { setAns(""); setStatus("idle"); setHint(false); setAttempts(0); }, [clue.id]);
 
   const check = () => {
-    const clean = ans.trim().toLowerCase().replace(/\s+/g,"").replace(/[£,\.]/g,"");
-    const accepted = clue.puzzle.acceptedAnswers.map(a => a.toLowerCase().replace(/\s+/g,"").replace(/[£,\.]/g,""));
-    if (accepted.includes(clean)) {
+    const norm = s => s.toLowerCase().replace(/\s+/g,"").replace(/[£,\.]/g,"");
+    const clean = norm(ans.trim());
+    let isCorrect;
+    if (clue.puzzle.keywordGroups) {
+      isCorrect = clue.puzzle.keywordGroups.every(group =>
+        group.some(term => clean.includes(norm(term)))
+      );
+    } else {
+      const accepted = clue.puzzle.acceptedAnswers.map(norm);
+      isCorrect = accepted.includes(clean);
+    }
+    if (isCorrect) {
       setStatus("correct");
       setTimeout(onSolve, 1400);
     } else {

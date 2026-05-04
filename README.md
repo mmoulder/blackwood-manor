@@ -78,12 +78,12 @@ An interactive murder mystery game set in 1924 England where teams race to solve
 ### Clue 2: Document Reconstruction
 **Location:** The Fireplace — Partially Burned Documents  
 **Question:** Arrange fragments A, B, C in chronological order  
-**Answer:** `abc`
+**Answer:** `cab` (Fragment C: discovery → Fragment A: investigation → Fragment B: ultimatum)
 
 ### Clue 3: Forensic Accounting
 **Location:** The Estate Office — Financial Ledger  
 **Question:** Total embezzled, average monthly withdrawal, first month exceeding £5,000  
-**Answer:** `64000, 4571, november`
+**Answer:** `64000, 4571, september`
 
 ### Clue 4: The Diary Page
 **Location:** Behind the Study Bookcase — Hidden Panel  
@@ -98,12 +98,12 @@ An interactive murder mystery game set in 1924 England where teams race to solve
 
 ### Clue 6: The Alibi Matrix
 **Location:** The Billiards Room — Colonel Harwick's Evidence  
-**Question:** Who is provably lying? Who has no alibi? Whose alibi is corroborated?  
+**Question:** Who is provably lying? Who has no alibi? Whose alibi is corroborated by an independent witness (someone outside the four suspects)?  
 **Answer:** `harwick, victoria, doyle`
 
 ### Clue 7: The Coded Purchase Log
 **Location:** Whitmore & Sons Chemist — Purchase Records  
-**Question:** Decode the cipher (shift back 5 letters): AJSBNHP  
+**Question:** Decode the cipher (shift back 5 letters): KJSBNHP  
 **Answer:** `fenwick`
 
 ### Clue 8: Reconstructing the Timeline
