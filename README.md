@@ -93,7 +93,7 @@ An interactive murder mystery game set in 1924 England where teams race to solve
 ### Clue 5: The Forged Will
 **Location:** Fenwick & Associates — Lord Blackwood's Will  
 **Question:** Which THREE facts prove Will B is forged? (from 5 options)  
-**Answer:** `1, 2, 3`  
+**Answer:** `2, 4, 5`  
 (Tuesday vs Thursday discrepancy, modern ink compound, untraceable witness)
 
 ### Clue 6: The Alibi Matrix
