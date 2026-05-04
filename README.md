@@ -114,12 +114,13 @@ An interactive murder mystery game set in 1924 England where teams race to solve
 
 ### Clue 9: The Conspiracy Evidence
 **Location:** Victoria's Room — The False-Bottom Dresser  
-**Question:** Match 4 items to what they prove (W, X, Y, Z)  
-**Answer:** `1w, 2z, 3y, 4x`  
-- Note → Criminal agreement (W)
-- Bank draft → Payment to Fenwick (Z)
-- Arsenic box → Weapon possession (Y)
-- Shawl with soil → Physical presence in garden (X)
+**Question:** Match 5 items to abstract conspiracy elements (W, X, Y, Z) — one item is a decoy that proves nothing  
+**Answer:** `1W, 2Z, 3—, 4Y, 5X`  
+- Note → Documentary proof of mutual criminal intent (W)
+- Bank draft → Financial consideration to a co-conspirator (Z)
+- Pawn ticket → Decoy (private financial matter, not material to the case)
+- Arsenic box → Possession of the means prior to the act (Y)
+- Shawl with garden soil → Physical trace evidence at the crime scene (X)
 
 ### Clue 10: The Final Deduction
 **Location:** Scotland Yard — Inspector's Final Briefing  

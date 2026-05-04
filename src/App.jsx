@@ -151,13 +151,19 @@ const CLUE_CHAIN = [
   },
   {
     id: 9, icon: "🗝️", location: "Victoria's Room — The False-Bottom Dresser",
-    evidence: "A concealed compartment in Victoria's dressing table contains: (1) a folded note in Victoria's handwriting reading 'S.F. — destroy after Thursday. The arrangement stands. V.A.' (2) a bank draft for £8,000 made out to 'S. Fenwick' dated October 28th (3) a half-used box labelled 'Arsenious Oxide — Whitmore and Sons' with approximately 1oz removed (4) Victoria's red shawl which under ultraviolet light shows soil traces consistent with the Blackwood Manor east garden rose beds.",
+    evidence: "A concealed compartment in Victoria's dressing table contains: (1) a folded note in Victoria's handwriting reading 'S.F. — destroy after Thursday. The arrangement stands. V.A.' (2) a bank draft for £8,000 made out to 'S. Fenwick' dated October 28th (3) a pawn ticket from Pemberton & Hodge of London, dated October 12th, for 'one emerald brooch — value £45' (4) a half-used box labelled 'Arsenious Oxide — Whitmore and Sons' with approximately 1oz removed (5) Victoria's red shawl which under ultraviolet light shows soil traces consistent with the Blackwood Manor east garden rose beds.",
     puzzle: {
       type: "multi_deduction", title: "THE CONSPIRACY EVIDENCE",
-      question: "Each item in the dresser compartment proves a different element of the conspiracy. Match each item to what it specifically proves:\n\nITEMS:\n① The handwritten note to S.F.\n② The £8,000 bank draft\n③ The arsenious oxide box\n④ The shawl with garden soil traces\n\nELEMENTS:\n[W] Victoria and Fenwick had a pre-arranged criminal agreement\n[X] Victoria was physically present in the east garden that night\n[Y] Victoria possessed the murder weapon before the crime\n[Z] Victoria paid Fenwick for his role in the conspiracy\n\nEnter as four pairs, e.g. 1W,2X,3Y,4Z",
-      hint: "The note proves an agreement. The bank draft proves payment. The arsenic box proves weapon possession. The shawl with garden soil proves she was physically there.",
-      answer: "1w,2z,3y,4x", acceptedAnswers: ["1w,2z,3y,4x","1W,2Z,3Y,4X","①w,②z,③y,④x","1w, 2z, 3y, 4x"],
-      redHerring: null,
+      question: "Scotland Yard requires each piece of evidence to be matched to the specific legal element it proves. Beware: ONE item, though hidden, proves nothing material to the case against Victoria.\n\nITEMS:\n① The handwritten note to S.F.\n② The £8,000 bank draft\n③ The pawn ticket for the emerald brooch\n④ The arsenious oxide box\n⑤ The red shawl with east-garden soil\n\nELEMENTS:\n[W] Documentary proof of mutual criminal intent between two parties\n[X] Physical trace evidence placing the suspect at the crime scene\n[Y] Possession of the means to commit the act, prior to the act itself\n[Z] Financial consideration provided to a co-conspirator\n\nMatch each item to the element it proves — or mark it with a dash (—) if it proves nothing material. Enter as five pairs, e.g. 1W,2X,3—,4Y,5Z",
+      hint: "Read each element carefully — they are written in legal language, not plain English. The note speaks of an 'arrangement.' The shawl carries soil from the scene of the act. One item, though concealed, concerns a private financial matter unrelated to the conspiracy.",
+      answer: "1W,2Z,3—,4Y,5X",
+      acceptedAnswers: [
+        "1w,2z,3—,4y,5x","1W,2Z,3—,4Y,5X","1w, 2z, 3—, 4y, 5x",
+        "1w,2z,3-,4y,5x","1W,2Z,3-,4Y,5X","1w, 2z, 3-, 4y, 5x",
+        "1w,2z,3none,4y,5x","1w,2z,3n,4y,5x",
+        "①w,②z,③—,④y,⑤x","①w,②z,③-,④y,⑤x",
+      ],
+      redHerring: "The pawn ticket shows Victoria was quietly raising cash, but the brooch was pawned in London a fortnight before the murder and has no documented link to Fenwick, the weapon, or the scene. It establishes nothing material to the conspiracy.",
     },
   },
   {
@@ -178,7 +184,7 @@ const SOLUTION = {
   accomplice: "Mr. Silas Fenwick",
   weapon: "Arsenic",
   time: "9:30pm",
-  motive_keyword: "embezzl",
+  motive_keywords: ["embezzl","steal","stole","stolen","theft","thief","thiev","fraud","pilfer","skim","forgery","forged"],
   full: `Victoria Ashworth embezzled £64,000 from the Blackwood estate over 14 months. When Lord Blackwood discovered the fraud and threatened to contact Scotland Yard, Victoria conspired with family solicitor Silas Fenwick to forge a new will naming her sole heir — paying him £8,000. On November 2nd, 1924, she purchased arsenic from Whitmore and Sons, unlatched the study window in advance, and entered the study at 9:30pm via the east garden wearing her red shawl and white gloves. She dissolved arsenic in the brandy decanter and departed. Lord Blackwood drank the brandy and was found dead at 11pm. Colonel Harwick, though guilty of stealing the Victoria Cross to pay gambling debts, played no part in the murder — his suspicious behaviour was a deliberate red herring.`,
 };
 
@@ -530,7 +536,7 @@ function AccuseScreen({ player, onBack }) {
       accomplice === SOLUTION.accomplice &&
       weapon === SOLUTION.weapon &&
       time === SOLUTION.time &&
-      motive.toLowerCase().includes(SOLUTION.motive_keyword);
+      SOLUTION.motive_keywords.some(k => motive.toLowerCase().includes(k));
     setResult({ correct, killer });
     syncTeamProgress(player.team, 10, { correct, killer, timestamp: Date.now() });
   };
