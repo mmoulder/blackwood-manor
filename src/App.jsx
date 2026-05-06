@@ -173,7 +173,9 @@ const CLUE_CHAIN = [
       type: "final_logic", title: "THE FINAL DEDUCTION",
       question: "Inspector Graves poses one final logic test before charges are filed:\n\n'If Victoria acted alone in poisoning Blackwood, Fenwick would have had no motive to forge the will — he would gain nothing from a dead Blackwood unless Victoria inherited. Yet the will was forged three weeks before the murder. Therefore Fenwick knew of the murder plan in advance.'\n\nIs this argument:\n(A) Valid — the conclusion follows necessarily from the premises\n(B) Invalid — Fenwick could forge the will without knowing a murder was planned, believing only that Victoria wanted to update the will\n(C) Partially valid — the conclusion is probable but not logically certain\n\nAnswer with the letter AND a one-sentence explanation of your reasoning.",
       hint: "Consider: could Fenwick believe he was simply helping Victoria update a will legitimately, not knowing she intended to murder Blackwood first? If yes, the argument is not airtight.",
-      answer: "c", acceptedAnswers: ["c","(c)","c ","partially valid","c:","c—"],
+      answer: "c", 
+      acceptedAnswers: ["c","(c)","c ","partially valid","c:","c—"],
+      keywordGroups: [["c","partial"]],
       redHerring: "B is also defensible — this is genuinely ambiguous. The model answer is C because the argument has logical force but is not watertight.",
     },
   },
@@ -369,7 +371,7 @@ function GameScreen({ player, onAccuse }) {
               <aside className="clue-sb">
                 <div className="sb-hd">EVIDENCE LOG</div>
                 {CLUE_CHAIN.map((c, i) => {
-                  const isDone = i < solved, isAct = i === idx, isLocked = i > idx;
+                  const isDone = i < solved, isAct = i === idx, isLocked = i >= solved;
                   return (
                     <button
                       key={c.id}
